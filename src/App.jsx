@@ -25,7 +25,6 @@ function App() {
     if(location){
       const arraySplit = getArraySplit(location.residents,8)
         setResidents(arraySplit)
-        console.log(residents)
     }
   },[location])
   
@@ -65,7 +64,7 @@ function App() {
                 
                 <div className='resident__container'>
                   {
-                    residents?.[counter].map(url => (
+                    residents?.[counter]?.map(url => (
                       <ResidentCard
                         key = {url}
                         url = {url}
