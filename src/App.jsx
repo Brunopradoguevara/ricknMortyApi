@@ -15,6 +15,7 @@ function App() {
   const [location, getLocation,hasError] = useFetch(url)
   const [residents, setResidents] = useState()
   const [counter, setCounter] = useState(0)
+  const [counterPages, setcounterPages] = useState(1)
   
   useEffect(()=>{
     
@@ -35,6 +36,8 @@ function App() {
     
     inputSearch.current.value && inputSearch.current.value !== "0" ? setUbicationNumber(inputSearch.current.value.trim()) : setUbicationNumber("invalid value")
     inputSearch.current.value = ""
+    setcounterPages(1)
+    setCounter(0)
   }
 
   
@@ -55,12 +58,30 @@ function App() {
                 <LocationInfo
                   location = {location}
                 /> 
-                <h2 className='title__inhabitants'>Inhabitants</h2>
-                <Pagination
-                  setCounter={setCounter}
-                  counter={counter}
-                  residents={residents}
-                /> 
+                {
+                  residents?.[0]
+                  ?(
+                    <>
+                      <h2 className='title__inhabitants'>Inhabitants</h2>
+                      <span className='numberOfPages'>page {counterPages} of {residents?.length}</span>
+                      {
+                        residents?.[1]
+                        ?(
+                        <Pagination
+                          setCounter={setCounter}
+                          counter={counter}
+                          residents={residents}
+                          setcounterPages={setcounterPages}
+                          counterPages={counterPages}
+                        /> 
+                        )
+                        :(null)
+                      } 
+                    </>
+                  )
+                  : <h2 className='title__inhabitants'>Without inhabitants</h2>
+                }
+                
                 
                 <div className='resident__container'>
                   {
@@ -72,11 +93,19 @@ function App() {
                     ))
                   }
                 </div>
-                <Pagination
-                  setCounter={setCounter}
-                  counter={counter}
-                  residents={residents}
-                /> 
+                {
+                  residents?.[1]
+                  ?(
+                  <Pagination
+                    setCounter={setCounter}
+                    counter={counter}
+                    residents={residents}
+                    setcounterPages={setcounterPages}
+                    counterPages={counterPages}
+                  /> 
+                  )
+                  :(null)
+                } 
               </>
             )
         }

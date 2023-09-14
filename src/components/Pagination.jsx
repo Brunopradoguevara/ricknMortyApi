@@ -1,15 +1,17 @@
 
 
-const Pagination = ({setCounter,counter,residents}) => {
+const Pagination = ({setCounter,counter,residents,setcounterPages,counterPages}) => {
 
     const handlePrevius = ()=>{
         if(residents[counter - 1]){
             setCounter(counter - 1)
+            setcounterPages(counterPages - 1)
         }
     }
     const handleNext = ()=>{
         if(residents[counter + 1]){
-            setCounter(counter + 1)
+            setCounter(counter + 1) 
+            setcounterPages(counterPages + 1)
         }
     }
 

@@ -68,10 +68,13 @@
 }
 .title__inhabitants{
     color: rgb(114, 179, 17);
-    margin-bottom: 0.1em;
     margin-top: 0.4em;
     font-size: 3em;
     font-family: 'Grandstander', cursive;
+}
+.numberOfPages{
+    color: white;
+    margin-bottom: 0.7em;
 }
 .pagination__nav{
     width: 20%;
@@ -95,7 +98,8 @@
     transition: 0.3s ease-in-out;
 }
 .pagination__btn:hover{
-    background-color: cornflowerblue;
+    background-color: #072226;
+    color: white;
 }
 .resident__container{
     max-width: 715px;
