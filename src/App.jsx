@@ -12,7 +12,7 @@ function App() {
   const getRandom = getRandomNumber(126)
   const [ubicationNumber, setUbicationNumber] = useState(getRandom)
   const url = `https://rickandmortyapi.com/api/location/${ubicationNumber}`
-  const [location, getLocation,hasError] = useFetch(url)
+  const [location, getLocation, hasError] = useFetch(url)
   const [residents, setResidents] = useState()
   const [counter, setCounter] = useState(0)
   const [counterPages, setcounterPages] = useState(1)
@@ -31,6 +31,7 @@ function App() {
   
 
   const inputSearch = useRef()
+  
   const handleSubmit = (e)=>{
     e.preventDefault()
     
@@ -47,12 +48,12 @@ function App() {
       </header>
       <div className='container__main'>
         <form className='container__form' onSubmit={handleSubmit}>
-            <input className='container__input' type="text"ref={inputSearch} />
+            <input className='container__input' type="text"ref={inputSearch} placeholder='Number between 1 and 126'/>
             <button className='container__btn'>Search</button>
         </form>
         {
           hasError
-            ? <h2>❌ Hey! you must provide an id from 1 to 126 😭</h2>
+            ? <h2 className='message__error'>❌ Hey! you must provide an id from 1 to 126 😭</h2>
             :(
               <>
                 <LocationInfo
@@ -63,7 +64,6 @@ function App() {
                   ?(
                     <>
                       <h2 className='title__inhabitants'>Inhabitants</h2>
-                      <span className='numberOfPages'>page {counterPages} of {residents?.length}</span>
                       {
                         residents?.[1]
                         ?(

@@ -1,5 +1,4 @@
-
-
+import './styles/Pagination.css'
 const Pagination = ({setCounter,counter,residents,setcounterPages,counterPages}) => {
 
     const handlePrevius = ()=>{
@@ -20,7 +19,17 @@ const Pagination = ({setCounter,counter,residents,setcounterPages,counterPages})
         <ul className="pagination__list">
             <li className="pagination__item">
                 <button onClick={handlePrevius} className="pagination__btn">Previous</button>
-            </li>
+            </li>  
+           {residents.map((resident, index) => (
+                <li key={index} className="pagination__item">
+                    <button onClick={() => setCounter(index)} className={`pagination__btn ${index === counter ?'active' : ''}`} >
+
+                      {index + 1}
+
+                    </button>
+                </li>
+            ))
+           }
             <li className="pagination__item">
                 <button onClick={handleNext} className="pagination__btn">Next</button>
             </li>

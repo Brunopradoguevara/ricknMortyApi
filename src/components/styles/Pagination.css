@@ -1,0 +1,32 @@
+.pagination__nav{
+    width: 95%;
+    margin-bottom: 1em;
+}
+.pagination__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+}
+.pagination__item{
+    margin-right: 1em;
+}
+.pagination__btn{
+    border: none;
+    background-color: white;
+    width: 66px;
+    border-radius: 5px;
+    padding: 0.3em;
+    color: black;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+}
+.pagination__btn.active {
+    background-color: rgb(114, 179, 17); 
+    color: #fff; 
+  }
+.pagination__btn:hover{
+    background-color: #072226;
+    color: white;
+}

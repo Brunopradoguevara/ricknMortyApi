@@ -1,0 +1,44 @@
+.location{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 650px;
+    background-color: #072226;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    padding-top: 0.7em;
+    text-align: center;
+}
+.location__name{
+    font-family: 'Grandstander', cursive;
+}
+.location__list{
+    display: flex;
+    justify-content: space-around;
+}
+.location__item{
+    display: flex;
+    flex-direction: column;
+    padding: 0.7em;
+}
+.location__label{
+    margin-bottom: 0.5em;
+}
+.location__value{
+    color: #aaa;
+}
+
+
+@media screen and (max-width: 374px) {  
+    .location{
+        width: 80%;
+    }
+    .location__list{
+        display: grid;
+    }
+    .location__label{
+        margin-bottom: 0.7em;
+    }
+}

@@ -1,4 +1,4 @@
-
+import './styles/LocationInfo.css'
 const LocationInfo = ({location}) => {
   return (
     <article className="location">
