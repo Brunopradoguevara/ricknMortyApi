@@ -64,6 +64,13 @@
     justify-items: center;
 }
 
+@media screen and (min-width: 1350px) {
+    .resident__container{
+        max-width: 1500px;
+        margin-top: 1rem;
+    }
+}
+
 @media screen and (max-width: 374px) {
     .container__input{
      padding-right: 1em;
